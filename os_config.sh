@@ -14,6 +14,8 @@ curl -s https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_V
     && sudo mv apache-jmeter-${JMETER_VERSION} ${JMETER_HOME}
 
 # TODO add JMeter plugins downloading
+# TODO chec possibility to pass OS configuration via terraform
+
 
 #Extend ip ranges
 echo 1025 60999 > /proc/sys/net/ipv4/ip_local_port_range
