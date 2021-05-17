@@ -1,21 +1,21 @@
-resource "aws_instance" "jmeter-slave" {
+resource "aws_instance" "jmeter_slave" {
   count           = var.slave_instance_count
   ami             = var.instance_ami
   instance_type   = var.slave_instance_type
-  security_groups = ["${aws_security_group.jmeter-sg.name}"]
-  key_name        = aws_key_pair.jmeter-slave-keypair.key_name
+  security_groups = ["${aws_security_group.jmeter_sg.name}"]
+  key_name        = aws_key_pair.jmeter_slave_keypair.key_name
   user_data       = file("os_config.sh")
   tags = {
-    "Name" = "jmeter-slave"
+    "Name" = "jmeter_slave"
   }
 }
 
-resource "tls_private_key" "slave-kp" {
+resource "tls_private_key" "slave_kp" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "jmeter-slave-keypair" {
-  key_name   = "jmeter-slave-keypair"
-  public_key = tls_private_key.slave-kp.public_key_openssh
+resource "aws_key_pair" "jmeter_slave_keypair" {
+  key_name   = "jmeter_slave_keypair"
+  public_key = tls_private_key.slave_kp.public_key_openssh
 }
