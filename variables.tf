@@ -34,20 +34,3 @@ variable "region" {
   type        = string
 }
 
-variable "jmeter_url" {
-  description = "URL to download JMeter binary"
-  default     = ""
-  type        = string
-}
-
-variable "jmeter_version" {
-  description = "Specify the version of JMeter"
-  default     = "5.1"
-  type        = string
-}
-
-variable "module_git_url" {
-  description = "Specify the git URL to find module source files"
-  default     = "github.com/tony-lems/jmeter-cloudformation"
-  type        = string
-}
