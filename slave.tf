@@ -4,14 +4,10 @@ resource "aws_instance" "jmeter_slave" {
   instance_type   = var.slave_instance_type
   security_groups = ["${aws_security_group.jmeter_sg.name}"]
   key_name        = aws_key_pair.jmeter_slave_keypair.key_name
-  #user_data       = file("os_config.sh")
+  user_data       = file("os_config.sh")
   tags = {
     "Name" = "jmeter_slave_${count.index}"
   }
-}
-
-provisioner "remote-exec" {
-  script = "os_config.sh"
 }
 
 resource "tls_private_key" "slave_kp" {

@@ -3,7 +3,7 @@ output "jmeter_master_id" {
 }
 
 output "jmeter_master_addresses" {
-    value = ["${aws_instance.jmeter_master.*.ipv4_address}"]
+    value = ["${aws_instance.jmeter_master.*.public_ip}"]
 }
 
 
@@ -12,7 +12,7 @@ output "jmeter_slave_id" {
 }
 
 output "jmeter_slave_addresses" {
-    value = ["${aws_instance.jmeter_slave.*.ipv4_address}"]
+    value = ["${aws_instance.jmeter_slave.*.public_ip}"]
 }
 
 output "jmeter_sg_id" {
